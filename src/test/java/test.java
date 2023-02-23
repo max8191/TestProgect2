@@ -28,6 +28,10 @@ Faker faker = new Faker();
         int num = (int)(1+Math.random()*101);
         wb.findElement(By.id("ctl00_MainContent_fmwOrder_txtQuantity")).sendKeys(Keys.BACK_SPACE,Integer.toString(num));
         wb.findElement(By.xpath("//input[@value='Calculate']")).click();
+        if(num<10)
+        Assert.assertEquals(wb.findElement(By.id("ctl00_MainContent_fmwOrder_txtTotal")).getAttribute("value"),num*100);
+        else
+            Assert.assertEquals(wb.findElement(By.id("ctl00_MainContent_fmwOrder_txtTotal")).getAttribute("value"),Integer.toString((int)(num*100*0.92)));
     String zip="";
     for (int i =0;i<5;i++){
         zip += ""+(int)(Math.random()*10);
