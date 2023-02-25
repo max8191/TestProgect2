@@ -29,7 +29,7 @@ Faker faker = new Faker();
         wb.findElement(By.id("ctl00_MainContent_fmwOrder_txtQuantity")).sendKeys(Keys.BACK_SPACE,Integer.toString(num));
         wb.findElement(By.xpath("//input[@value='Calculate']")).click();
         if(num<10)
-        Assert.assertEquals(wb.findElement(By.id("ctl00_MainContent_fmwOrder_txtTotal")).getAttribute("value"),num*100);
+        Assert.assertEquals(wb.findElement(By.id("ctl00_MainContent_fmwOrder_txtTotal")).getAttribute("value"),Integer.toString(num*100));
         else
             Assert.assertEquals(wb.findElement(By.id("ctl00_MainContent_fmwOrder_txtTotal")).getAttribute("value"),Integer.toString((int)(num*100*0.92)));
     String zip="";
